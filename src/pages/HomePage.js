@@ -10,7 +10,8 @@ const HomePage = () => {
     const[totalPages,setTotalPages]=useState(7);
 
     const [posts, setPosts] = useState(data);
-    const [filteredPosts, setFilteredPosts] = useState(data);
+    const results=posts.slice(0,8);
+    const [filteredPosts, setFilteredPosts] = useState(results);
     const [itemsOrder,setItemsOrder]=useState('None');
     const [category, setCategory] = useState("All");
 
@@ -18,7 +19,7 @@ const HomePage = () => {
 
     useEffect(() => {
         fetchData();
-    },[category,pageNo]
+    },[category,pageNo,]
     )
 
     useEffect(() => {
