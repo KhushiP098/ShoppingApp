@@ -50,19 +50,15 @@ const HomePage = () => {
     }
 
     const OrderItems=()=>{
-        console.log(itemsOrder);
-        
+        let sortedPosts = [...filteredPosts];
 
-        if(itemsOrder==="Increasing"){
-            const result=  filteredPosts.sort((a, b) => b.price - a.price);
-            setFilteredPosts(result);
-            
+        if (itemsOrder === "Decreasing") {
+            sortedPosts.sort((a, b) => b.price - a.price);
+        } else if (itemsOrder === "Increasing") {
+            sortedPosts.sort((a, b) => a.price - b.price);
         }
-        else if(itemsOrder==="Decreasing"){
-            const result=  filteredPosts.sort((a, b) => a.price - b.price);
-            setFilteredPosts(result);
-
-        }
+    
+        setFilteredPosts(sortedPosts);
     
     }
 
