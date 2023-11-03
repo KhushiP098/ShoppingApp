@@ -12,7 +12,7 @@ margin-top:50px;
 export const Div=styled.div`
 
 width:300px;
-height:300px;
+height:320px;
 
 display:flex;
 flex-direction:column;
