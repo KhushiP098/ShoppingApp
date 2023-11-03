@@ -30,6 +30,7 @@ font-weight:bold;
 font-size:16px;
 padding:8px;
 border-radius:8px;
+margin:5px;
 cursor:pointer;
 
 &:hover{
@@ -74,6 +75,14 @@ margin-bottom:5px;
 font-family:sans-mono;
 font-size:20px;
   
+`
+export const ButtonBox=styled.div`
+display:flex;
+width:50%;
+justify-content:center;
+margin-bottom:30px;
+margin:10px;
+
 `
 
 export const Box2=styled.div`

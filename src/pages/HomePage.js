@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { data } from '../Data/data'
 import {categoryData } from '../Data/filter'
-import { Box, Container2,Button, Box3,Input,Label, Box2 } from '../style/CompStyle'
+import { Box, Container2,Button,ButtonBox, Box3,Input,Label, Box2 } from '../style/CompStyle'
 
 import Card from '../components/Card';
 
@@ -45,36 +45,39 @@ const HomePage = () => {
     }
 
     function handler(event){
-        const value=event.target.value;
-        setItemsOrder(value);
+        const Value=event.target.value;
+        setItemsOrder(Value);
     }
 
     const OrderItems=()=>{
+        console.log(itemsOrder);
+        
 
         if(itemsOrder==="Increasing"){
             const result=  filteredPosts.sort((a, b) => b.price - a.price);
             setFilteredPosts(result);
+            
         }
         else if(itemsOrder==="Decreasing"){
             const result=  filteredPosts.sort((a, b) => a.price - b.price);
             setFilteredPosts(result);
+
         }
     
     }
 
     const fetchData = () => {
+
         
         console.log(category);
 
         if (category === "All") {
             const results = posts.filter((post) => (post.pageNo===pageNo));
             setFilteredPosts(results);
-            console.log(filteredPosts);
         }
         else {
             const results = posts.filter((post) => (post.category===category));
             setFilteredPosts(results);
-            console.log(filteredPosts);
         }
        setItemsOrder("None");
     }
@@ -110,6 +113,7 @@ const HomePage = () => {
 
             </Box3>
 
+            
 
             <Box>
                 { 
@@ -123,7 +127,7 @@ const HomePage = () => {
             {
                 category==="All"
                 &&
-                <div>
+                <ButtonBox>
                 {
                     pageNo>1 &&
                     <Button  onClick={decrement} >Previous</Button>
@@ -133,7 +137,7 @@ const HomePage = () => {
                 {  pageNo<totalPages &&
                     <Button onClick={increment} >Next</Button>
                 }
-            </div>
+            </ButtonBox>
             }
 
 
